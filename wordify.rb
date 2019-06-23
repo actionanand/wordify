@@ -7,7 +7,7 @@ class NumberToWord
     #initializing a hash to hold available dictionary words for possible letters
     words = {}
     #initializing an array to hold all possible word combinations
-    possible_words = []
+    result = []
 
     dictionary = []
     file_path = "dictionary.txt"
@@ -18,7 +18,21 @@ class NumberToWord
     end
 
     #Storing all the possible letters for the given digits in an array
-    p possible_letters = digits.chars.map{|digit| letters[digit]}
+    possible_letters = digits.chars.map{|digit| letters[digit]}
+
+
+    for i in (2..9)
+      arr1 = possible_letters[0..i] #spliting the array into two parts (0 to i and i to end)
+      arr2 = possible_letters[i + 1..9]
+      next if arr1.length < 3 || arr2.length < 3
+      first_combination = arr1.shift.product(*arr1).map(&:join)
+      next if first_combination.nil?
+      second_combination = arr2.shift.product(*arr2).map(&:join)
+      next if second_combination.nil?
+      #comparing the matches with dictionary words
+     p words[i] = [(first_combination & dictionary), (second_combination & dictionary)] 
+    end
+
   end
 
 end
