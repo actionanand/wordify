@@ -1,7 +1,10 @@
+require 'date'
 class NumberToWord
+
   def wordify(digits)
+  	time_start = Time.now()
     #Verifying whether the given number is valid or not
-    return "Please give 10 digit numbers" if digits.length != 10 || digits.split('').select{|a|(a.to_i == 0 || a.to_i == 1)}.length > 0
+    return p "Please enter valid 10 digits number! " if digits.length != 10 || digits.split('').select{|a|(a.to_i == 0 || a.to_i == 1)}.length > 0
     #mapping the given digits to given letter series
     letters = {"2" => ["a", "b", "c"],"3" => ["d", "e", "f"],"4" => ["g", "h", "i"],"5" => ["j", "k", "l"],"6" => ["m", "n", "o"],"7" => ["p", "q", "r", "s"],"8" => ["t", "u", "v"],"9" => ["w", "x", "y", "z"]}
     #initializing a hash to hold available dictionary words for possible letters
@@ -42,13 +45,19 @@ class NumberToWord
 
     #finding common possible word of length 10 with dic
     result << (possible_letters.shift.product(*possible_letters).map(&:join) & dictionary).join(", ")
-    result
+    
+    time_end = Time.now()
+    puts "Time : #{(time_end.to_f - time_start.to_f)*1000} ms"
+
+    result.each do |i|
+      puts "No possible words are found with dictionary" if result.size <= 1
+      p i
+    end
 
   end
-
-
 
 end
 
 n2w = NumberToWord.new()
-n2w.wordify("6686787825")
+print "Please enter 10 digits number(without '0' & '1') : "
+n2w.wordify(gets.chomp)
