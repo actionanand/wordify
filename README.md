@@ -55,5 +55,5 @@ $ ruby wordify.rb
 Please enter 10 digits number(without '0' & '1') : 9625004218
 "Please enter valid 10 digits number! "
 
-
+for more reference, Kindly check "output.png" file
 
