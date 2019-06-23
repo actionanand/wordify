@@ -30,10 +30,23 @@ class NumberToWord
       second_combination = arr2.shift.product(*arr2).map(&:join)
       next if second_combination.nil?
       #comparing the matches with dictionary words
-     p words[i] = [(first_combination & dictionary), (second_combination & dictionary)] 
+      words[i] = [(first_combination & dictionary), (second_combination & dictionary)] 
     end
 
+    words.each do |k, v|
+      next if v.first.nil? || v.last.nil? #skip if either of the values of the inner arry of hash is nil
+      v.first.product(v.last).each do |word|
+        result << word
+      end
+    end
+
+    #finding common possible word of length 10 with dic
+    result << (possible_letters.shift.product(*possible_letters).map(&:join) & dictionary).join(", ")
+    result
+
   end
+
+
 
 end
 
