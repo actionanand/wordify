@@ -7,8 +7,9 @@ Words have to be at least 3 characters.
 
 To give you an initial idea, here are some numbers that return (a lot of) results.
 
-6686787825 returns a (long) list with these word combinations:
+`6686787825` returns a (long) list with these word combinations:
 
+```bash
 ["noun", "struck"]
 ["onto", "struck"]
 ["motor", "truck"]
@@ -16,10 +17,12 @@ To give you an initial idea, here are some numbers that return (a lot of) result
 ["nouns", "truck"]
 ["nouns", "usual"]
 "motortruck"
+```
 
 
-2282668687 returns a (long) list with these word combinations:
+`2282668687` returns a (long) list with these word combinations:
 
+```bash
 ["act", "amounts"]
 ["act", "contour"]
 ["bat", "amounts"]
@@ -28,6 +31,7 @@ To give you an initial idea, here are some numbers that return (a lot of) result
 ["cat", "contour"]
 ["acta", "mounts"]
 "catamounts"
+```
 
 This program takes around 800ms approximately to display the result
 
@@ -36,6 +40,7 @@ full output:
 
 #output when valid 10 digit is given
 
+```bash
 $ ruby wordify.rb 
 Please enter 10 digits number(without '0' & '1') : 2282668687
 Time : 816.0953521728516 ms
@@ -47,13 +52,18 @@ Time : 816.0953521728516 ms
 ["cat", "contour"]
 ["acta", "mounts"]
 "catamounts"
+```
 
 
 #output when invalid 10 digit is given
 
+```bash
 $ ruby wordify.rb 
 Please enter 10 digits number(without '0' & '1') : 9625004218
 "Please enter valid 10 digits number! "
+```
 
-for more reference, Kindly check "output.png" file
+See how it looks
+
+![Output](https://raw.githubusercontent.com/actionanand/wordify/master/output.png)
 
